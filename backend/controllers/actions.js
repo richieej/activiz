@@ -12,6 +12,18 @@ export const getActions = async (req, res) => {
     }
 }
 
+export const getPendingActions = async (req, res) => {
+
+    try {
+        const pendingActions = await ActionModel.find({ $or: [{ live: 0 }, { live: undefined }] })
+
+        res.status(200).json(pendingActions)
+        console.log("pending actions retrieved!")
+    } catch (error) {
+        res.status(404).json({ message: error.message })
+    }
+}
+
 export const getDivision = async (req, res) => {
     const path_match = "^" + req.body.path + ".*$"
     try {

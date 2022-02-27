@@ -2,7 +2,8 @@
 import express from 'express'
 import {
     getActions, 
-    getDivision, 
+    getDivision,
+    getPendingActions,
     submitAction, 
     approveAction, 
     deleteAction
@@ -15,6 +16,7 @@ router.post('/show', getDivision)
 router.post('/submit', submitAction)
 router.post('/approve', approveAction)
 router.post('/delete', deleteAction)
+router.get('/pending', getPendingActions)
 
 
 
