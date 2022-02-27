@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
+import usersRoutes from './routes/usersRoutes.js'
 import actionsRoutes from './routes/actionsRoutes.js'
 const app = express();
 
@@ -13,6 +14,7 @@ const app = express();
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use('/users', usersRoutes);
 app.use('/actions', actionsRoutes)
 //ever route inside of postRoutes will start with localhost:5000/posts 
 
