@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import topicsRoutes from './routes/topicsRoutes.js'
+import usersRoutes from './routes/usersRoutes.js'
 const app = express();
 
 
@@ -14,6 +15,7 @@ app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use('/topics', topicsRoutes)
+app.use('/users', usersRoutes);
 //ever route inside of postRoutes will start with localhost:5000/posts 
 
 //mongodb atlas
