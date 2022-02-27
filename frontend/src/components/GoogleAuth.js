@@ -2,8 +2,9 @@ import React from "react";
 import { connect } from 'react-redux';
 import { Button } from "@material-ui/core";
 import axios from 'axios';
+//import 'dotenv/config';
 
-import { signIn, signOut } from '../actions'
+import { signIn, signOut, trueAdmin, falseAdmin } from '../actions'
 
 
 class GoogleAuth extends React.Component {
@@ -43,10 +44,16 @@ class GoogleAuth extends React.Component {
                             .then(res => console.log(res))
                             .catch(error => console.log(error.message))
                     }
+                    if (res.data.admin === true) {
+                        this.props.trueAdmin();
+                    } else {
+                        this.props.falseAdmin();
+                    }
                 })
                 .catch((err) => console.log(err))
         } else {
             this.props.signOut();
+            this.props.falseAdmin();
         }
     }
 
@@ -94,4 +101,4 @@ const mapStateToProps = (state) => {
     return { isSignedIn: state.auth.isSignedIn }
 }
 
-export default connect(mapStateToProps, { signIn, signOut })(GoogleAuth);
+export default connect(mapStateToProps, { signIn, signOut, trueAdmin, falseAdmin })(GoogleAuth);

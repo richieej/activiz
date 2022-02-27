@@ -3,7 +3,11 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import usersRoutes from './routes/usersRoutes.js'
 import actionsRoutes from './routes/actionsRoutes.js'
+import 'dotenv/config'
+
 const app = express();
+
+
 
 
 
@@ -21,7 +25,7 @@ app.use('/actions', actionsRoutes)
 //mongodb atlas
 
 
-const CONNECTION_URL = "mongodb+srv://activiz:foundmyiphone2022@cluster.ey7xf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const CONNECTION_URL = process.env.MONGO_URI
 const PORT = process.env.port || 5000
 
 
