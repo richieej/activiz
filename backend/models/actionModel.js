@@ -8,6 +8,7 @@ const actionSchema = mongoose.Schema({
     path: String, 
     title: String, 
     summary: String, 
+    live: Number,
 })
 
 const ActionModel = mongoose.model('ActionModel', actionSchema)

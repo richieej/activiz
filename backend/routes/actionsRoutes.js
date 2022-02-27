@@ -3,14 +3,18 @@ import express from 'express'
 import {
     getActions, 
     getDivision, 
-    addAction
+    submitAction, 
+    approveAction, 
+    deleteAction
 } from '../controllers/actions.js'
 const router = express.Router()
 
 
 router.get('/', getActions)
-router.get('/show', getDivision)
-router.post('/add', addAction)
+router.post('/show', getDivision)
+router.post('/submit', submitAction)
+router.post('/approve', approveAction)
+router.post('/delete', deleteAction)
 
 
 
