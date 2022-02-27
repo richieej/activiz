@@ -17,6 +17,14 @@ router.route('/fetchUser').get((req, res) => {
     console.log("fetched user");
 })
 
+router.route('/makeAdmin').get((req, res) => {
+    console.log("promoting")
+    User.collection.updateOne(
+        {userId: req.query.userId},
+        { $set: {"admin": true}}
+    )
+})
+
 router.route('/addUser').post((req,res) => {
     const userId = req.body.userId;
     const username = req.body.username;
