@@ -1,7 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
-import topicsRoutes from './routes/topicsRoutes.js'
+import actionsRoutes from './routes/actionsRoutes.js'
 const app = express();
 
 
@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use('/topics', topicsRoutes)
+app.use('/actions', actionsRoutes)
 //ever route inside of postRoutes will start with localhost:5000/posts 
 
 //mongodb atlas
@@ -23,7 +23,7 @@ const CONNECTION_URL = "mongodb+srv://activiz:foundmyiphone2022@cluster.ey7xf.mo
 const PORT = process.env.port || 5000
 
 
-//PLEASE USE TEST_URL WHEN YOU'RE TESTING INSTEAD OF CONNECTION_URL
+
 mongoose.connect(CONNECTION_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
