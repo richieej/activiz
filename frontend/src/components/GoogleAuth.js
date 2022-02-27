@@ -31,7 +31,6 @@ class GoogleAuth extends React.Component {
             this.props.signIn(this.auth.currentUser.get().getId(), this.auth.currentUser.get().getBasicProfile().getEmail());
             axios.get("http://localhost:5000/users/fetchUser", { params: { userId: this.auth.currentUser.get().getId() } })
                 .then((res) => {
-                    console.log("here")
                     console.log(res)
                     if (res.data === "") {
                         console.log("new user")

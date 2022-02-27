@@ -14,6 +14,7 @@ router.route('/').get((req, res) => {
 router.route('/fetchUser').get((req, res) => {
     console.log("fetching user");
     User.findOne({userId: req.query.userId}, function(err, obj) {res.send(obj)})
+    console.log("fetched user");
 })
 
 router.route('/addUser').post((req,res) => {
